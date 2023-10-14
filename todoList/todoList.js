@@ -38,9 +38,7 @@ function drawTodo2(data){
         removebtn.className = 'remove-btn';
         removebtn.onclick = function(){
             this.parentNode.remove();
-            todoList = todoList.filter((i)=>{
-                return i.date !== todoNode.date;
-            })
+            todoList = todoList.filter(i=>  i.date !== todoNode.date)
             localStorage.setItem("todoList", JSON.stringify(todoList))
         }
         todoNode2.appendChild(removebtn);
