@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area{
+            background:  lightgray;
+            border: 1px solid black;
+        }
+        .smail{
+            height:  200px;
+        }
+        .big{
+            height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <h1>객체</h1>
+    <h3>객체 선언 및 사용</h3>
+    <p>js에서 map을 객체라고 표현한다 객체는 {}를 사용하여 생성하고,
+        중관호 안에 이 객체에 필요한 속성들을 정의함<br>
+        속성명: 속성값의 형태로ㅓ 정의함(키 벨류)
+        객체를 파일로 저장할 때 파일 확장자는 json으로 설정
+        josn형식이라고 한다.
+
+        let data = {
+            name: "차정석"
+        }
+        변수 = {
+
+        }
+    </p>
+    <input id="username" type="text" value="이름">
+    <input id="userId" type="text" value="아이디">
+    <input id="userPwd" type="text" value="비밀번호">
+    <button onclick="test1()"></button>
+    <div class="area big" id="area1"></div>
+    <script>
+       
+        test1 = () =>{
+            const userinfo = document.getElementById('area1');
+            const product = {
+                "name" : "망고",
+                "가격" : 4000,
+                "원산지": "핀리핀산",
+                "크기":{
+                    "가로" : 10,
+                    "세로" : 12
+                }
+            }
+            userinfo.innerHTML += '<b>객체명["속성명"]으로 접근하기</b>'
+            userinfo.innerHTML += '제품명 : ' + product[name]
+            userinfo.innerHTML += '<b>객체명["속성명"]으로 접근하기</b>'
+            console.log(product);
+            //자바스크립트에서 객체 = > 자바에서의 컬렙션(map)
+
+            let hunman = {
+            name : document.getElementById('username').value,
+            userid : document.getElementById('userId').value,
+            userpwd : document.getElementById('userPwd').value,
+            }
+           
+            console.log(hunman);
+            userinfo.innerHTML += `username = ${hunman.name}, userid = ${hunman.userid}, userpwd = ${hunman.userpwd}`
+        }
+        
+    
+    </script>
+
+    <h3>객체 생성시 특이케이스(속성명 제시시 반드시 문자열 형태로 해야되는 케이스)</h3>
+    <button onclick="test2()"></button>
+    <div class="area smail" id="area2"></div>
+    <script>
+        const user = {
+            "user name" : "홍길동",
+            "age||" : 20
+        }
+        //속성명에 공백이나 특수문자가 포함될 경우 반드시 문자열로 묶어야한다.
+
+        const area2 = document.getElementById('area2');
+        //.을 이용 => 객체명.속성명 => 안됨
+    </script>
+
+    <h3>
+        객체에서의 반목문
+    </h3>
+    <button onclick="test3()"></button>
+    <div class="area smail" id="area3"></div>
+    <script>
+        test3 = () =>{
+            const arr=["최지원", 12, true];
+            for(let unit of arr){
+                console.log(unit)
+            }
+            for(let i in arr){
+                console.log(i)
+            }
+            
+            const game = {
+                title: "오버워치",
+                price: 30000,
+                language: "한국어",
+                company : "블라자드"
+            }
+
+            for(let key in game){
+                console.log(key);
+                console.log(game[key])
+                console.log(key.value);
+            }
+        }
+    </script>
+
+    <hr>
+    <h3>객체의 메소드 속성</h3>
+    <p>객체의 속성중 함수 자료형인 속성을 메소드라고 부른다</p>
+    <button onclick="test4()"></button>
+    <div class="area smail" id="area4"></div>
+
+    <script>
+        test4 =()=>{
+            const area = document.getElementById('area4');
+
+            const name= '최지원';
+
+            const dog = {
+                name : "복실히",
+                kind : "말티즈",
+                eat : (food) =>{
+                    area.innerHTML += "eat메소드가 허출되었습니다.<br>"
+                    area.innerHTML += food;
+                }
+            }
+
+            dog.eat("사료")
+        }
+    </script>
+
+    <h3>in 과 with 키워드</h3>
+    <p>in : 객체 내에 해당 속석이 있는지 확인해주는 키워드(존하면 true, 아니면 false반환)</p>
+    <p>with : 객체의 속성 접근시 객체별로 속성을 제시하는 겋 생략가능</p>
+
+    이름 : <input id="name" type="text">
+    국어 : <input id="kor" type="number">
+    수학 : <input id="math" type="number">
+    영어 : <input id="eng" type="number">
+    <button onclick="test5()">실행화인</button>
+    <div class="area smail" id="area5"></div>
+
+    <script>
+       function test5() {
+        
+            const student = {
+                name : document.getElementById('name').value,
+                kor : Number(document.getElementById('kor').value),
+                math : Number(document.getElementById('math').value),
+                eng :   Number(document.getElementById('eng').value),
+                toString: function(){
+                    return `학생의 이름은 ${this.name}, 국어는 ${this.kor}, 수학은 ${this.math}
+                    영어는 ${this.eng}`
+                },
+                getSum: ()=>{
+                    //모든 정수의 합
+                    return this.kor + this.math+this.eng
+                },
+                getAvg:()=>{
+                    return this.getSum/3
+                }
+            }
+            console.log(student);
+
+            const area5 = document.getElementById('area5');
+            area5.innerHTML += 'student' + student+"<br>"
+
+            area5.innerHTML += "name속성이 있을까?" + ("name" in student)+"<br>"
+            area5.innerHTML += "name속성이 있을까?" + ("age" in student)+"<br>"
+          
+            //
+            with(student){
+            area5.innerHTML += "학생이름: " + name + '<br>'
+            area5.innerHTML += "국어점수: " + kor + '<br>'
+            area5.innerHTML += "수학점수: " + math + '<br>'
+            area5.innerHTML += "영어점수: " + eng + '<br>'
+            area5.innerHTML += "총점: " + getSum() + '<br>'
+            area5.innerHTML += "평균: " + getAvg() + '<br>'
+            }       
+        }
+    </script>
+    <h3>객체의 속성을 추가하거나 삭제</h3>
+    <button onclick="test6()">실행화인</button>
+    <div class="area smail" id="area6"></div>
+
+    <script>
+
+        test6=()=>{
+            const student = {
+
+            }
+        //객체에 속성 추가
+            student.name = "홍길동"; 
+            student.hobby = ['롤', '축구'];
+            student.dream = '프로게이머'
+            student.age = 20;
+
+            console.log(student);
+
+            student.dream = '개발자';
+
+           
+
+            student.toString = ()=>{
+                const str = 'name : ' +this.name + "<br>" +
+                'hobby : ' +this.hobby + "<br>" +
+                'dream : ' +this.dream + "<br>" +
+                'age : ' +this.age + "<br>"     
+            }
+
+            console.log(student);
+
+            const area = document.getElementById('area6')
+            area.innerHTML += student+ "</br>";
+
+            delete(student.hobby);
+
+            
+        }
+   
+    </script>
+
+    <h3>객체배열을 사용한 다량의 데이터 관리</h3>
+    
+</body>
+</html>

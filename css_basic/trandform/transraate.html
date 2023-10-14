@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .translate-box{
+            display: inline-block;
+            background-color: aquamarine;
+            width: 100px;
+            height: 100px;
+            animation: shimmy 8s infinite;
+            animation-timing-function: linear;
+            animation-direction: alternate;
+        }
+        @keyframes shimmy{
+            0%{
+                transform: translate(0,0);
+                background-color: black;
+            }
+            25%{
+                transform: translate(200px,0);
+                background-color: beige;
+            }
+            50%{
+                transform: translate(200px,200px);
+                background-color: red;
+            }
+            75%{
+                transform: translate(0,200px);
+                background-color: green;
+            }
+            100%{
+                transform: translate(0,0);
+                
+            }
+          
+        }
+    </style>
+</head>
+
+<body>
+    <p>--------------------------------------</p>
+    <div class="translate-box"></div>
+    <p>---------------------------------------</p>
+</body>
+</html>

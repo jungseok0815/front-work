@@ -1,0 +1,11 @@
+.text-a{
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size: 30px;
+    font-weight: 900;
+    text-align: center;
+    font-style: italic;
+    line-height: 36px;
+
+    text-decoration: underline;
+    text-decoration: none;
+}

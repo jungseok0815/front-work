@@ -1,0 +1,21 @@
+<script>
+    function one(){
+        console.log("one run");
+        console.log("finish")
+    }
+
+    function two(){
+        console.log("two run");
+        one();
+        console.log("two finish")
+    }
+
+    function three(){
+        console.log("two three");
+        two();
+        console.log("three finish")
+    }
+
+    three();
+
+</script>

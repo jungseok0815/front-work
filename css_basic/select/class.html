@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            background-color: skyblue;
+            padding: 10px;
+            margin-bottom: 39px;
+            text-align: center;
+        }
+        .container:hover{
+            background-color: red;
+        }
+        .focus-input:focus{
+            background: coral;
+        }
+        .container-two > div{
+            width: 100px;
+            background-color: beige;
+            height: 100px;
+            float: left;
+        }
+        .container-two > div:nth-child(2n){
+            background-color: aliceblue;
+        }
+        .container-two > div:last-child{
+            width: 500px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container container-box">
+        마우스를 올려보세요.
+    </div>
+    <input type="text" class="focus-input">
+    <div class="container-two">
+        <div>1</div>    
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+    </div>
+</body>
+</html>
